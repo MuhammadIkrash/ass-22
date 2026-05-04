@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whole Foods Market</title>
+    <link rel="icon" href="logo.png" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* ── Banner ── */
+      .banner {
+        background: radial-gradient(
+          circle,
+          rgba(22, 128, 39, 1) 0%,
+          rgba(5, 168, 73, 1) 50%,
+          rgba(13, 184, 13, 1) 100%
+        );
+        width: 100%;
+        min-height: 70px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between; /* left group vs right card */
+        padding: 10px 20px;
+        gap: 12px;
+      }
+
+      /* ── Left group: card + text side by side ── */
+      .banner-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex: 1;
+        min-width: 0; /* KEY: allows text to shrink & not overflow */
+      }
+
+      .banner-right {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      /* ── Card ── */
+      .Card {
+        width: 50px;
+        height: 50px;
+        color: white;
+        background-color: chocolate;
+        border-radius: 12px;
+        flex-shrink: 0; /* never shrinks */
+      }
+
+      /* ── Text block ── */
+      .banner-text {
+        display: flex;
+        flex-direction: column;
+        min-width: 0; /* KEY: allows ellipsis to work */
+      }
+
+      /* ── Username ── */
+      .username {
+        font-size: clamp(15px, 4vw, 46px); /* fluid scaling */
+        color: chocolate;
+        font-weight: bold;
+        text-transform: capitalize;
+        font-family:
+          "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; /* cuts off if too long */
+      }
+
+      /* ── About ── */
+      .about {
+        font-size: clamp(11px, 2vw, 18px); /* fluid scaling */
+        color: white;
+        font-family: sans-serif;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* ── Tablet (768px) ── */
+      @media (max-width: 768px) {
+        .banner {
+          padding: 8px 16px;
+          gap: 10px;
+          min-height: 64px;
+        }
+        .Card {
+          width: 42px;
+          height: 42px;
+          border-radius: 10px;
+        }
+      }
+
+      /* ── Mobile Large (425px) ── */
+      @media (max-width: 425px) {
+        .banner {
+          padding: 8px 12px;
+          gap: 8px;
+          min-height: 58px;
+        }
+        .Card {
+          width: 36px;
+          height: 36px;
+          border-radius: 9px;
+        }
+      }
+
+      /* ── Mobile Medium (375px) ── */
+      @media (max-width: 375px) {
+        .banner {
+          padding: 7px 10px;
+          gap: 7px;
+          min-height: 54px;
+        }
+        .Card {
+          width: 32px;
+          height: 32px;
+          border-radius: 8px;
+        }
+      }
+
+      /* ── Mobile Small (320px) ── */
+      @media (max-width: 320px) {
+        .banner {
+          padding: 6px 8px;
+          gap: 6px;
+          min-height: 50px;
+        }
+        .Card {
+          width: 28px;
+          height: 28px;
+          border-radius: 7px;
+        }
+      }
+
+      /* /Card */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        background: #f5f5f5;
+      }
+
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px 16px;
+      }
+
+      /* --- Search Form --- */
+      form {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+
+      form input[type="text"] {
+        flex: 1;
+        padding: 10px 14px;
+        font-size: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        outline: none;
+      }
+
+      form input[type="text"]:focus {
+        border-color: chocolate;
+      }
+
+      form input[type="submit"] {
+        padding: 10px 20px;
+        font-size: 15px;
+        background: chocolate;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      form input[type="submit"]:hover {
+        background: chocolate;
+      }
+
+      /* --- Product Grid --- */
+      .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      /* --- Product Card --- */
+      .container > div {
+        background: white;
+        border-radius: 12px;
+        padding: 16px;
+        text-align: center;
+        border: 1px solid #eee;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .container > div:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .container > div img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+
+      .container > div h4 {
+        font-size: 12px;
+        color: #999;
+        font-weight: 400;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .container > div h2 {
+        font-size: 15px;
+        font-weight: 600;
+        color: #222;
+        margin-bottom: 6px;
+      }
+
+      .container > div span {
+        font-size: 14px;
+        color: chocolate;
+        font-weight: 500;
+      }
+
+      /* --- No Results --- */
+      #no-results {
+        display: none;
+        text-align: center;
+        padding: 40px;
+        color: #999;
+        font-size: 15px;
+        grid-column: 1 / -1;
+      }
+
+      /* --- Responsive Breakpoints --- */
+      @media (max-width: 900px) {
+        .container {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        form input[type="submit"] {
+          padding: 10px 14px;
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <div class="about" id="detail"></div>
+      <div class="Card">0</div>
+    </div>
+    <main>
+      <form onsubmit="return false;">
+        <input
+          type="text"
+          id="myinput"
+          placeholder="What do you want?"
+          oninput="filterProducts()"
+        />
+        <input type="submit" value="Search..." />
+      </form>
+      <div class="container">
+        <div data-name="mango" data-category="fruits">
+          <img src="1.webp" alt="Mango" />
+          <h4>Fruits</h4>
+          <h2>Mango</h2>
+          <span>$ 10</span>
+        </div>
+        <div data-name="banana" data-category="fruits">
+          <img src="2.webp" alt="Banana" />
+          <h4>Fruits</h4>
+          <h2>Banana</h2>
+          <span>$ 20</span>
+        </div>
+        <div data-name="guava" data-category="fruits">
+          <img src="3.webp" alt="Guava" />
+          <h4>Fruits</h4>
+          <h2>Guava</h2>
+          <span>$ 30</span>
+        </div>
+        <div data-name="mango" data-category="fruits">
+          <img src="4.webp" alt="Mango" />
+          <h4>Fruits</h4>
+          <h2>Mango</h2>
+          <span>$ 10</span>
+        </div>
+        <div data-name="fresh meat" data-category="meat">
+          <img src="5.webp" alt="Fresh Meat" />
+          <h4>Meat</h4>
+          <h2>Fresh Meat</h2>
+          <span>$ 15</span>
+        </div>
+        <div data-name="burger" data-category="fast food">
+          <img src="6.webp" alt="Burger" />
+          <h4>Fast Food</h4>
+          <h2>Burger</h2>
+          <span>$ 10</span>
+        </div>
+        <div data-name="watermelon" data-category="fruits">
+          <img src="7.webp" alt="Watermelon" />
+          <h4>Fruits</h4>
+          <h2>Watermelon</h2>
+          <span>$ 10</span>
+        </div>
+        <div data-name="apple" data-category="fruits">
+          <img src="8.webp" alt="Apple" />
+          <h4>Fruits</h4>
+          <h2>Apple</h2>
+          <span>$ 15</span>
+        </div>
+        <div data-name="dry fruits" data-category="fruits">
+          <img src="9.webp" alt="Dry Fruits" />
+          <h4>Fruits</h4>
+          <h2>Dry Fruits</h2>
+          <span>$ 10</span>
+        </div>
+        <div data-name="mango" data-category="fruits">
+          <img src="10.webp" alt="Mango" />
+          <h4>Fruits</h4>
+          <h2>Mango</h2>
+          <span>$ 10</span>
+        </div>
+        <div data-name="vegetables" data-category="vegs">
+          <img src="11.webp" alt="Vegetables" />
+          <h4>Vegs</h4>
+          <h2>Vegetables</h2>
+          <span>$ 35</span>
+        </div>
+        <div data-name="juice" data-category="fruits">
+          <img src="12.webp" alt="Juice" />
+          <h4>Fruits</h4>
+          <h2>Juice</h2>
+          <span>$ 10</span>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="home.js"></script>
+</html>

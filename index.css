@@ -1,0 +1,492 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.all {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(
+    circle,
+    rgba(22, 128, 39, 1) 0%,
+    rgba(5, 168, 73, 1) 50%,
+    rgba(13, 184, 13, 1) 100%
+  );
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 70vw;
+  height: 70vh;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  gap: 20px;
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  border-radius: 10px;
+  gap: 16px;
+}
+.inp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.input {
+  width: 400px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid chocolate;
+  padding: 14px;
+  font-size: 17px;
+}
+
+.btn {
+  width: 400px;
+  height: 40px;
+  border-radius: 5px;
+  border: solid 1px chocolate;
+  font-size: 18px;
+  color: white;
+  background-color: chocolate;
+}
+
+.left img {
+    border-radius: 8px;
+}
+
+.log a{
+    color: chocolate;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* ── Tablets Landscape (768px – 1023px) ── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .all {
+    height: auto;
+    min-height: 100vh;
+    padding: 30px 0;
+  }
+  .main {
+    flex-direction: column;
+    width: 88vw;
+    height: auto;
+    padding: 30px 20px;
+    gap: 20px;
+  }
+  .right {
+    width: 100%;
+    height: auto;
+    gap: 14px;
+  }
+  .inp {
+    gap: 14px;
+    width: 100%;
+    align-items: center;
+  }
+  .input,
+  .btn {
+    width: 420px;
+    height: 44px;
+    font-size: 16px;
+  }
+  .left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .left img {
+    width: 100%;
+    max-width: 420px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+
+/* ── Tablets Portrait (576px – 767px) ── */
+@media (min-width: 576px) and (max-width: 767px) {
+  .all {
+    height: auto;
+    min-height: 100vh;
+    padding: 24px 0;
+  }
+  .main {
+    flex-direction: column;
+    width: 92vw;
+    height: auto;
+    padding: 26px 16px;
+    gap: 16px;
+  }
+  .right {
+    width: 100%;
+    height: auto;
+    gap: 12px;
+  }
+  .inp {
+    gap: 12px;
+    width: 100%;
+    align-items: center;
+  }
+  .input,
+  .btn {
+    width: 360px;
+    height: 42px;
+    font-size: 15px;
+  }
+  .left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .left img {
+    width: 100%;
+    max-width: 360px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+
+/* ── Mobile (380px – 575px) ── */
+@media (min-width: 380px) and (max-width: 575px) {
+  .all {
+    height: auto;
+    min-height: 100vh;
+    padding: 20px 0;
+  }
+  .main {
+    flex-direction: column;
+    width: 94vw;
+    height: auto;
+    padding: 22px 14px;
+    gap: 14px;
+    border-radius: 10px;
+  }
+  .right {
+    width: 100%;
+    height: auto;
+    gap: 10px;
+  }
+  .inp {
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+  }
+  .input,
+  .btn {
+    width: 100%;
+    max-width: 320px;
+    height: 42px;
+    font-size: 14px;
+    padding: 10px;
+  }
+  .left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .left img {
+    width: 100%;
+    max-width: 320px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+
+/* ── Small Phones (320px – 379px) ── */
+@media (min-width: 320px) and (max-width: 379px) {
+  .all {
+    height: auto;
+    min-height: 100vh;
+    padding: 16px 0;
+  }
+  .main {
+    flex-direction: column;
+    width: 96vw;
+    height: auto;
+    padding: 18px 12px;
+    gap: 12px;
+    border-radius: 8px;
+  }
+  .right {
+    width: 100%;
+    height: auto;
+    gap: 8px;
+  }
+  .inp {
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+  }
+  .input,
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    height: 40px;
+    font-size: 13px;
+    padding: 8px;
+  }
+  .left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .left img {
+    width: 100%;
+    max-width: 280px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+
+ /* ── Very Small Phones (< 320px) ── */
+    @media (max-width: 319px) {
+      .all {
+        height: auto;
+        min-height: 100vh;
+        padding: 12px;
+      }
+      .main {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .left {
+        width: 100%;
+        height: 140px;
+      }
+      .right {
+        width: 100%;
+        height: auto;
+        padding: 16px 12px;
+        gap: 10px;
+      }
+      .inp { gap: 8px; }
+      .input,
+      .btn {
+        max-width: 100%;
+        height: 38px;
+        font-size: 12px;
+      }
+    }
+
+    /* ── Small Phones (320px – 379px) ── */
+    @media (min-width: 320px) and (max-width: 379px) {
+      .all {
+        height: auto;
+        min-height: 100vh;
+        padding: 14px;
+      }
+      .main {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .left {
+        width: 100%;
+        height: 160px;
+      }
+      .right {
+        width: 100%;
+        height: auto;
+        padding: 18px 14px;
+        gap: 10px;
+      }
+      .inp { gap: 10px; }
+      .input,
+      .btn {
+        max-width: 100%;
+        height: 40px;
+        font-size: 13px;
+      }
+    }
+
+    /* ── Mobile (380px – 575px) ── */
+    @media (min-width: 380px) and (max-width: 575px) {
+      .all {
+        height: auto;
+        min-height: 100vh;
+        padding: 16px;
+      }
+      .main {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .left {
+        width: 100%;
+        height: 190px;
+      }
+      .right {
+        width: 100%;
+        height: auto;
+        padding: 20px 16px;
+        gap: 12px;
+      }
+      .inp { gap: 10px; }
+      .input,
+      .btn {
+        max-width: 100%;
+        height: 42px;
+        font-size: 14px;
+      }
+    }
+
+    /* ── Tablets Portrait (576px – 767px) ── */
+    @media (min-width: 576px) and (max-width: 767px) {
+      .all {
+        height: auto;
+        min-height: 100vh;
+        padding: 20px;
+      }
+      .main {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .left {
+        width: 100%;
+        height: 220px;
+      }
+      .right {
+        width: 100%;
+        height: auto;
+        padding: 24px 20px;
+        gap: 14px;
+      }
+      .inp { gap: 12px; }
+      .input,
+      .btn {
+        max-width: 400px;
+        height: 42px;
+        font-size: 15px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .all {
+        height: auto;
+        min-height: 100vh;
+        padding: 24px;
+      }
+      .main {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .left {
+        width: 100%;
+        height: 260px;
+      }
+      .right {
+        width: 100%;
+        height: auto;
+        padding: 28px 24px;
+        gap: 14px;
+      }
+      .inp { gap: 14px; }
+      .input,
+      .btn {
+        max-width: 440px;
+        height: 44px;
+        font-size: 15px;
+      }
+    }
+
+    /* ── Small Laptops (1024px – 1279px) ── */
+    @media (min-width: 1024px) and (max-width: 1279px) {
+      .main {
+        width: 90vw;
+        height: 78vh;
+      }
+      .left  { width: 50%; height: 100%; }
+      .left img{
+        width: 100%;
+        height: 100%;
+      }
+      .right { width: 50%; height: 100%; padding: 24px 20px; gap: 14px; }
+      .inp   { gap: 12px; }
+      .input,
+      .btn   { max-width: 300px; height: 42px; font-size: 14px; }
+    }
+
+    /* ── Standard Desktops (1280px – 1439px) ── */
+    /* @media (min-width: 1280px) and (max-width: 1439px) {
+      .main {
+        width: 80vw;
+        height: 74vh;
+      }
+      .left  { width: 50%; height: 100%; }
+      .right { width: 50%; height: 100%; padding: 28px 24px; gap: 16px; }
+      .inp   { gap: 14px; }
+      .input,
+      .btn   { max-width: 340px; height: 44px; font-size: 15px; }
+    } */
+
+    /* ── Large Desktops (1440px – 1919px) ── */
+    @media (min-width: 1440px) and (max-width: 1919px) {
+      .main {
+        width: 72vw;
+        height: 72vh;
+        padding: 20px 16px;
+      }
+      .left  { width: 50%; height: 100%; }
+        .left img{
+            width: 100%;
+            height: 100%;
+        }
+      .right { width: 50%; height: 100%; padding: 32px 28px; gap: 14px; }
+      .inp   { gap: 14px; }
+      .input,
+      .btn   { max-width: 380px; height: 46px; font-size: 16px; }
+    }
+
+    /* ── 4K / Ultra-wide (1920px+) ── */
+    @media (min-width: 1920px) {
+      .main {
+        width: 60vw;
+        height: 68vh;
+      }
+      .left  { width: 50%; height: 100%; }
+      .left img{
+        width: 100%;
+        height: 100%;
+      }
+      .right { width: 50%; height: 100%; padding: 30px 36px; gap: 10px; }
+      .inp   { gap: 18px; 
+    }
+      .input{
+        max-width: 540px;
+      }
+      .btn   { max-width: 540px; height: 52px; font-size: 18px; }
+    }
