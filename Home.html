@@ -202,7 +202,7 @@
       }
 
       /* --- Product Card --- */
-      .container > div {
+      .ProductCard {
         background: white;
         border-radius: 12px;
         padding: 16px;
@@ -246,9 +246,27 @@
         font-size: 14px;
         color: chocolate;
         font-weight: 500;
+        display: block;
+        margin-bottom: 10px;
+      }
+      .container > div button {
+        color: #eee;
+        background-color: chocolate;
+        border: none;
+        padding: 8px;
+        border-radius: 6px;
+        font-weight: 600;
       }
 
-      /* --- No Results --- */
+      .container > div button:focus {
+        border-radius: 4px;
+        padding: 10px 16px;
+        border: 2px solid rgb(236, 182, 7);
+      }
+      .container > div button:hover{
+        background-color: rgb(243, 123, 37);
+      }
+            /* --- No Results --- */
       #no-results {
         display: none;
         text-align: center;
@@ -296,82 +314,8 @@
           placeholder="What do you want?"
           oninput="filterProducts()"
         />
-        <input type="submit" value="Search..." />
       </form>
-      <div class="container">
-        <div data-name="mango" data-category="fruits">
-          <img src="1.jpg" alt="Mango" />
-          <h4>Fruits</h4>
-          <h2>Mango</h2>
-          <span>$ 10</span>
-        </div>
-        <div data-name="banana" data-category="fruits">
-          <img src="2.jpg" alt="Banana" />
-          <h4>Fruits</h4>
-          <h2>Banana</h2>
-          <span>$ 20</span>
-        </div>
-        <div data-name="guava" data-category="fruits">
-          <img src="3.jpg" alt="Guava" />
-          <h4>Fruits</h4>
-          <h2>Guava</h2>
-          <span>$ 30</span>
-        </div>
-        <div data-name="mango" data-category="fruits">
-          <img src="4.jpg" alt="Mango" />
-          <h4>Fruits</h4>
-          <h2>Mango</h2>
-          <span>$ 10</span>
-        </div>
-        <div data-name="fresh meat" data-category="meat">
-          <img src="5.jpg" alt="Fresh Meat" />
-          <h4>Meat</h4>
-          <h2>Fresh Meat</h2>
-          <span>$ 15</span>
-        </div>
-        <div data-name="burger" data-category="fast food">
-          <img src="6.jpg" alt="Burger" />
-          <h4>Fast Food</h4>
-          <h2>Burger</h2>
-          <span>$ 10</span>
-        </div>
-        <div data-name="watermelon" data-category="fruits">
-          <img src="7.jpg" alt="Watermelon" />
-          <h4>Fruits</h4>
-          <h2>Watermelon</h2>
-          <span>$ 10</span>
-        </div>
-        <div data-name="apple" data-category="fruits">
-          <img src="8.jpg" alt="Apple" />
-          <h4>Fruits</h4>
-          <h2>Apple</h2>
-          <span>$ 15</span>
-        </div>
-        <div data-name="dry fruits" data-category="fruits">
-          <img src="9.jpg" alt="Dry Fruits" />
-          <h4>Fruits</h4>
-          <h2>Dry Fruits</h2>
-          <span>$ 10</span>
-        </div>
-        <div data-name="mango" data-category="fruits">
-          <img src="10.jpg" alt="Mango" />
-          <h4>Fruits</h4>
-          <h2>Mango</h2>
-          <span>$ 10</span>
-        </div>
-        <div data-name="vegetables" data-category="vegs">
-          <img src="11.jpg" alt="Vegetables" />
-          <h4>Vegs</h4>
-          <h2>Vegetables</h2>
-          <span>$ 35</span>
-        </div>
-        <div data-name="juice" data-category="fruits">
-          <img src="12.jpg" alt="Juice" />
-          <h4>Fruits</h4>
-          <h2>Juice</h2>
-          <span>$ 10</span>
-        </div>
-      </div>
+      <div class="container" id="container"></div>
     </main>
   </body>
   <script src="home.js"></script>
