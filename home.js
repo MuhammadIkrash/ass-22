@@ -48,17 +48,75 @@ const items = [
   { title: "Peas", category: "vegetable", price: "$1.15", img: "https://plus.unsplash.com/premium_photo-1663844169467-ddb73a03afdc?w=400", "data-name": "Peas", "data-category": "vegetable" },
   { title: "Cabbage", category: "vegetable", price: "$0.85", img: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?w=400", "data-name": "Cabbage", "data-category": "vegetable" },
 ];
+// document.addEventListener("DOMContentLoaded", function () {
+//   const cardContainer = document.getElementById('container');
+//   let card = "";
+//   items.forEach(c => {
+//     card += `<div data-name="${c['data-name']}" class='ProductCard' data-category="${c['data-category']}">
+//           <img src="${c.img}" alt="${c.title}"  />
+//           <h4>${c.category}</h4>
+//           <h2>${c.title}</h2>
+//           <span>${c.price}</span>
+//           <button data-name="${c['data-name']}" data-category="${c['data-category']}" id='cardBtn'>Add To Card</button>
+//         </div>` ;
+//   });
+//   cardContainer.innerHTML = card;
+
+//   // 
+  
+
+// })
+
 document.addEventListener("DOMContentLoaded", function () {
-  const cardContainer = document.getElementById('container');
-  let card = "";
-  items.forEach(c => {
-    card += `<div data-name="${c['data-name']}" class='ProductCard' data-category="${c['data-category']}">
-          <img src="${c.img}" alt="${c.title}"  />
-          <h4>${c.category}</h4>
-          <h2>${c.title}</h2>
-          <span>${c.price}</span>
-          <button>Add To Card</button>
-        </div>` ;
-  });
-  cardContainer.innerHTML = card;
+    const cardContainer = document.getElementById('container');
+    const cardNumDisplay = document.getElementById('cardNum');
+    
+    // Initialize cart from localStorage or empty array
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cardNumDisplay.innerText = cart.length;
+
+    // Render Products
+    let cardHTML = "";
+    items.forEach(c => {
+        cardHTML += `
+        <div data-name="${c['data-name']}" class='ProductCard' data-category="${c['data-category']}">
+            <img src="${c.img}" alt="${c.title}" />
+            <h4>${c.category}</h4>
+            <h2>${c.title}</h2>
+            <span>${c.price}</span>
+            <button class="add-btn" data-title="${c.title}" data-price="${c.price}" data-img="${c.img}">Add To Cart</button>
+        </div>`;
+    });
+    cardContainer.innerHTML = cardHTML;
+
+    // Add event listener to the container (Event Delegation)
+    cardContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('add-btn')) {
+            const product = {
+                title: e.target.getAttribute('data-title'),
+                price: parseFloat(e.target.getAttribute('data-price').replace('$', '')),
+                img: e.target.getAttribute('data-img'),
+                quantity: 1
+            };
+
+            // Check if item exists
+            const existingItem = cart.find(item => item.title === product.title);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            cardNumDisplay.innerText = cart.reduce((acc, item) => acc + item.quantity, 0);
+            alert(`${product.title} added to cart!`);
+        }
+    });
+
+    // Make Cart Icon Clickable to go to checkout
+    document.querySelector('.cardIcon').style.cursor = "pointer";
+    document.querySelector('.cardIcon').onclick = () => {
+        window.location.href = "card.html";
+    };
 });
+
